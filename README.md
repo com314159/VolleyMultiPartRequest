@@ -3,7 +3,7 @@ VolleyMultiPartRequest
 
 android volley upload file
 
-This is a Volley VolleyMultiPartRequest  upload file demo.
+This is a demo that use volley to upload file by use mutipartrequest
 
 Some source code is from 
 https://github.com/smanikandan14/Volley-demo
