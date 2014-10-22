@@ -68,11 +68,10 @@ public class MultiPartStack extends HurlStack {
         addHeaders(httpRequest, request.getHeaders());
         HttpParams httpParams = httpRequest.getParams();
         int timeoutMs = request.getTimeoutMs();
-        // TODO: Reevaluate this connection timeout based on more wide-scale
-        // data collection and possibly different for wifi vs. 3G.
-        HttpConnectionParams.setConnectionTimeout(httpParams, 5000);
-        HttpConnectionParams.setSoTimeout(httpParams, timeoutMs);
-        
+
+        if(timeoutMs != -1) {
+        	HttpConnectionParams.setSoTimeout(httpParams, timeoutMs);
+        }
         
         /* Make a thread safe connection manager for the client */
         HttpClient httpClient = new DefaultHttpClient(httpParams);
@@ -108,7 +107,9 @@ public class MultiPartStack extends HurlStack {
                 return new HttpDelete(request.getUrl());
             case Method.POST: {
                 HttpPost postRequest = new HttpPost(request.getUrl());
-                postRequest.addHeader(HEADER_CONTENT_TYPE, request.getBodyContentType());
+                if(request.getBodyContentType() != null) {
+                	postRequest.addHeader(HEADER_CONTENT_TYPE, request.getBodyContentType());
+                }
                 setMultiPartBody(postRequest,request);
                 return postRequest;
             }

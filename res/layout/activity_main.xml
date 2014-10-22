@@ -10,6 +10,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="174dp"
-        android:text="Button" />
+        android:text="UploadFile" />
 
 </RelativeLayout>
