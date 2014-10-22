@@ -15,7 +15,10 @@ You can see the demo code in MainActivity, I have tested it can upload file.
 usage is almost the same as volley native request.
 
 Demo code:
-    RequestQueue mSingleQueue = Volley.newRequestQueue(this, new MultiPartStack());
+    		
+    		
+    		
+    		RequestQueue mSingleQueue = Volley.newRequestQueue(this, new MultiPartStack());
     
 
 		MultiPartStringRequest multiPartRequest = new MultiPartStringRequest(
